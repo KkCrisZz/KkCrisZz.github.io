@@ -23,11 +23,11 @@
 
     <main class="site-shell">
       <aside class="sidebar" aria-label="Profile sidebar">
-        <div class="portrait" aria-hidden="true">R</div>
+        <div class="portrait" aria-hidden="true">任</div>
 
         <section class="sidebar-section profile-card" id="about">
           <p class="eyebrow">Personal Archive</p>
-          <h1>Ren Zekai</h1>
+          <h1>Ren Zekai <span>任泽凯</span></h1>
           <p class="sidebar-bio">
             大三学生，正在整理自己的项目、成果和学习记录。这个网站会作为读研阶段持续更新的个人主页。
           </p>
@@ -35,8 +35,16 @@
 
         <section class="sidebar-section">
           <h2>Education</h2>
-          <p>Undergraduate Student</p>
-          <p class="muted">在读本科生 · 准备进入读研阶段</p>
+          <dl class="profile-list">
+            <div>
+              <dt>Stage</dt>
+              <dd>Undergraduate Junior</dd>
+            </div>
+            <div>
+              <dt>Plan</dt>
+              <dd>Graduate study preparation</dd>
+            </div>
+          </dl>
         </section>
 
         <section class="sidebar-section">
@@ -51,17 +59,20 @@
         <section class="sidebar-section">
           <h2>Follow</h2>
           <div class="link-stack">
-            <span class="pending-link">GitHub · Add your profile URL</span>
-            <span class="pending-link">Email · Add your address</span>
-            <span class="pending-link">CV · Optional later</span>
+            <a href="https://github.com/KkCrisZz">GitHub · KkCrisZz</a>
+            <a href="https://kkcriszz.github.io/">Website · kkcriszz.github.io</a>
+            <span class="pending-link">Email · To be added</span>
           </div>
         </section>
       </aside>
 
       <div class="content-column">
         <section class="intro-panel" aria-labelledby="intro-title">
-          <p class="eyebrow">Academic Pages structure · Paper archive style</p>
-          <h2 id="intro-title">A growing body of work.</h2>
+          <p class="eyebrow">Academic profile · Growing archive</p>
+          <h2 id="intro-title">
+            <span>A growing</span>
+            <span>body of work.</span>
+          </h2>
           <p class="lede">
             你好，我是 <strong>Ren Zekai</strong>。这个页面参考 AcademicPages 的学术主页排布：
             左侧放稳定的个人信息，右侧放可以长期扩展的成果、项目、笔记和简历入口。
@@ -101,7 +112,7 @@
               <p>
                 一个用于长期维护的 GitHub Pages 静态个人主页，记录个人介绍、项目成果与学习进展。
               </p>
-              <a class="text-link" href="#top">View this page</a>
+              <a class="text-link" href="https://github.com/KkCrisZz/KkCrisZz.github.io">View repository</a>
             </article>
 
             <article class="entry muted-entry">
@@ -138,13 +149,34 @@
             <h2 id="cv-title">Curriculum Vitae</h2>
           </div>
           <div class="entry-list">
-            <article class="entry muted-entry">
-              <p class="entry-kicker">Optional</p>
-              <h3>CV can be added when it is ready.</h3>
-              <p>
-                现在不需要为了页面完整而放一份空 CV。之后可以上传 PDF，或者把教育经历、
-                项目、奖项按 AcademicPages 的方式拆成更完整的简历页面。
-              </p>
+            <article class="entry">
+              <p class="entry-kicker">Profile</p>
+              <h3>Basic information</h3>
+              <dl class="detail-grid">
+                <div>
+                  <dt>Name</dt>
+                  <dd>Ren Zekai / 任泽凯</dd>
+                </div>
+                <div>
+                  <dt>Current stage</dt>
+                  <dd>Undergraduate junior</dd>
+                </div>
+                <div>
+                  <dt>Website</dt>
+                  <dd><a href="https://kkcriszz.github.io/">kkcriszz.github.io</a></dd>
+                </div>
+                <div>
+                  <dt>GitHub</dt>
+                  <dd><a href="https://github.com/KkCrisZz">github.com/KkCrisZz</a></dd>
+                </div>
+              </dl>
+            </article>
+
+            <article class="entry">
+              <p class="entry-kicker">Download</p>
+              <h3>Full CV</h3>
+              <p>完整的简历 PDF，包含教育经历、项目经验和技能信息。</p>
+              <a class="text-link" href="docs/任泽凯简历.pdf" download>Download CV (PDF)</a>
             </article>
           </div>
         </section>
