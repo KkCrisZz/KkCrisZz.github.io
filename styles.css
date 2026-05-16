@@ -7,6 +7,7 @@
   --rule: rgba(40, 33, 25, 0.14);
   --rule-strong: rgba(40, 33, 25, 0.28);
   --accent: #7b3f2a;
+  --accent-soft: rgba(123, 63, 42, 0.12);
   --max-width: 1180px;
 }
 
@@ -32,16 +33,22 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image: radial-gradient(rgba(40, 33, 25, 0.04) 0.7px, transparent 0.7px);
-  background-size: 18px 18px;
+  background:
+    radial-gradient(rgba(40, 33, 25, 0.04) 0.7px, transparent 0.7px) 0 0 / 18px 18px,
+    linear-gradient(120deg, rgba(123, 63, 42, 0.035), transparent 38%, rgba(40, 33, 25, 0.025));
+  background-size: 18px 18px, 180% 180%;
   opacity: 0.18;
   mix-blend-mode: multiply;
+  animation: background-breathe 18s ease-in-out infinite alternate;
 }
 
 a {
   color: inherit;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.22em;
+  transition:
+    color 180ms ease,
+    text-decoration-color 180ms ease;
 }
 
 a:hover {
@@ -77,6 +84,7 @@ strong {
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  animation: page-enter 650ms ease both;
 }
 
 .brand,
@@ -95,6 +103,29 @@ strong {
   gap: 10px 18px;
 }
 
+.nav a {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.nav a:hover::after,
+.nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
 .site-shell {
   width: min(calc(100% - 40px), var(--max-width));
   margin: 0 auto;
@@ -103,6 +134,7 @@ strong {
   grid-template-columns: minmax(220px, 285px) minmax(0, 1fr);
   gap: clamp(42px, 7vw, 92px);
   align-items: start;
+  animation: page-enter 760ms 80ms ease both;
 }
 
 .sidebar {
@@ -118,6 +150,9 @@ strong {
   border: 1px solid var(--ink);
   border-radius: 50%;
   object-fit: cover;
+  transition:
+    box-shadow 220ms ease,
+    transform 220ms ease;
 }
 
 .sidebar-section {
@@ -264,6 +299,19 @@ dd {
   border-bottom: 1px solid var(--rule);
 }
 
+.js .content-section {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 560ms ease,
+    transform 560ms ease;
+}
+
+.js .content-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .section-heading {
   min-width: 0;
 }
@@ -287,6 +335,9 @@ dd {
   gap: 12px;
   padding: 20px 0;
   border-top: 1px solid var(--rule-strong);
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease;
 }
 
 .entry:first-child {
@@ -309,11 +360,16 @@ dd {
 }
 
 .text-link {
+  display: inline-block;
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  transition:
+    color 180ms ease,
+    transform 180ms ease,
+    text-decoration-color 180ms ease;
 }
 
 .timeline {
@@ -344,6 +400,55 @@ dd {
   color: var(--muted);
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 0.85rem;
+}
+
+.footer a,
+.link-stack a {
+  display: inline-block;
+  transition:
+    color 180ms ease,
+    transform 180ms ease,
+    text-decoration-color 180ms ease;
+}
+
+@media (hover: hover) {
+  .portrait:hover {
+    box-shadow: 0 14px 34px var(--accent-soft);
+    transform: scale(1.035);
+  }
+
+  .entry:hover {
+    border-top-color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  .text-link:hover,
+  .footer a:hover,
+  .link-stack a:hover {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes background-breathe {
+  from {
+    background-position: 0 0, 0% 45%;
+  }
+
+  to {
+    background-position: 0 0, 100% 55%;
+  }
 }
 
 @media (max-width: 900px) {
@@ -418,5 +523,23 @@ dd {
 
   .footer {
     flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+
+  .site-header,
+  .site-shell,
+  .js .content-section {
+    opacity: 1;
+    transform: none;
   }
 }
