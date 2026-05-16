@@ -202,6 +202,7 @@ h1 span {
   gap: 2px;
   padding: 10px 0;
   border-top: 1px solid var(--rule);
+  min-width: 0;
 }
 
 .profile-list div:first-child,
@@ -222,6 +223,11 @@ dt {
 dd {
   margin: 0;
   color: var(--muted);
+  min-width: 0;
+}
+
+.detail-grid a {
+  overflow-wrap: anywhere;
 }
 
 .secondary-detail {
@@ -275,8 +281,8 @@ dd {
 
 .content-section {
   display: grid;
-  grid-template-columns: minmax(150px, 0.28fr) minmax(0, 1fr);
-  gap: clamp(22px, 4vw, 48px);
+  grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 58px);
   padding: 34px 0;
   border-bottom: 1px solid var(--rule);
 }
@@ -290,7 +296,8 @@ dd {
   font-size: clamp(1.35rem, 2vw, 2.2rem);
   font-weight: 450;
   line-height: 1.18;
-  word-break: break-word;
+  overflow-wrap: normal;
+  word-break: keep-all;
 }
 
 .entry-list {
