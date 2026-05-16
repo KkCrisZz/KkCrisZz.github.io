@@ -224,6 +224,22 @@ dd {
   color: var(--muted);
 }
 
+.secondary-detail {
+  font-size: 0.95rem;
+}
+
+.subtle-detail {
+  opacity: 0.72;
+}
+
+.subtle-detail dt {
+  color: var(--muted);
+}
+
+.subtle-detail dd {
+  font-size: 0.92rem;
+}
+
 .content-column {
   min-width: 0;
 }
