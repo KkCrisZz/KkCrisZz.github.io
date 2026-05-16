@@ -114,14 +114,10 @@ strong {
 .portrait {
   width: 132px;
   aspect-ratio: 1;
-  display: grid;
-  place-items: center;
   margin-bottom: 24px;
   border: 1px solid var(--ink);
   border-radius: 50%;
-  background: var(--paper-strong);
-  font-size: 4rem;
-  line-height: 1;
+  object-fit: cover;
 }
 
 .sidebar-section {
