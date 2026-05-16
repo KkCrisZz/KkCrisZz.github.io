@@ -1,11 +1,11 @@
 :root {
-  --paper: #f4ecdf;
-  --paper-soft: #fbf7ef;
-  --paper-strong: #fffaf0;
+  --paper: #f6f5f3;
+  --paper-soft: #ffffff;
+  --paper-strong: #ffffff;
   --ink: #282119;
-  --muted: #756b5f;
-  --rule: rgba(40, 33, 25, 0.24);
-  --rule-strong: rgba(40, 33, 25, 0.44);
+  --muted: #6b6358;
+  --rule: rgba(40, 33, 25, 0.14);
+  --rule-strong: rgba(40, 33, 25, 0.28);
   --accent: #7b3f2a;
   --max-width: 1180px;
 }
@@ -20,9 +20,7 @@ html {
 
 body {
   margin: 0;
-  background:
-    linear-gradient(90deg, rgba(40, 33, 25, 0.035) 1px, transparent 1px) 0 0 / 56px 56px,
-    var(--paper);
+  background: var(--paper);
   color: var(--ink);
   font-family: Charter, "Iowan Old Style", Georgia, "Times New Roman", serif;
   font-size: 16px;
@@ -34,9 +32,9 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image: radial-gradient(rgba(40, 33, 25, 0.08) 0.7px, transparent 0.7px);
+  background-image: radial-gradient(rgba(40, 33, 25, 0.04) 0.7px, transparent 0.7px);
   background-size: 18px 18px;
-  opacity: 0.32;
+  opacity: 0.18;
   mix-blend-mode: multiply;
 }
 
